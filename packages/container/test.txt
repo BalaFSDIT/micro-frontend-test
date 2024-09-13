@@ -6,4 +6,4 @@ Create invalidation for Distribution id
 
 Added the Marketing site domain
 
-Test Commit
+Test Commit with Static Marketing Variables

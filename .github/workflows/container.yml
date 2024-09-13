@@ -10,9 +10,6 @@ defaults:
   run:
     working-directory: packages/container
 
-env:
-  MARKETING_DOMAIN: "TEST"
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -20,7 +17,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: npm install
-      - run: npm run build
+      - run: set MARKETING_DOMAIN=${{secrets.MARKETING_DOMAIN }} npm run build
 
       - uses: shinyinc/action-aws-cli@v1.2
       - run: aws s3 sync dist s3://${{ secrets.AWS_S3_BUKET_NAME }}/container/latest
